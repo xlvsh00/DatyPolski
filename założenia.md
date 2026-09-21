@@ -4,7 +4,7 @@ Aplikacja webowa typu **BlackJack**
 
 Główne funkcje i zasady gry: Brak logowania: Gra jest w pełni dostępna od razu po wejściu na stronę (tryb "gościa").
 
-	1. Gra wieloosobowa / jednoosobowa przeciwko krupierowi w przeglądarce.
+	1. Gra jednoosobowa przeciwko krupierowi w przeglądarce.
 	
 	2. Dobieranie kart (Hit) – gracz może dobrać kolejną kartę, aby zbliżyć się do sumy 21 punktów.
 	
