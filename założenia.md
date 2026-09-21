@@ -1,6 +1,6 @@
 # Papier kamień nożyce 
 
-Aplikacja webowa typu ****
+Aplikacja webowa typu gry **Papier kamień nożyce **
 
 Główne funkcje i zasady gry: Brak logowania: Gra jest w pełni dostępna od razu po wejściu na stronę (tryb "gościa").
 
