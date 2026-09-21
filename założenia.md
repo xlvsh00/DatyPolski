@@ -8,7 +8,7 @@ Główne funkcje i zasady gry: Brak logowania: Gra jest w pełni dostępna od ra
 	
 	2. W każdej rundzie gracz wybiera: kamień, papier lub nożyce.
 	
-	3. Komputer losuje swój ruch (random_int()).
+	3. Komputer losuje swój ruch.
 	
 	4. Serwer porównuje ruchy: kamień pokonuje nożyce, nożyce pokonują papier, papier pokonuje kamień, a takie same ruchy dają remis.
 	
