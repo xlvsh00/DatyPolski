@@ -130,6 +130,12 @@ $quiz = [
 ];  
 $wynik = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $wynik = 0;
+    foreach ($quiz as $index => $item) {
+        if (isset($_POST["pytanie_$index"]) && $_POST["pytanie_$index"] === $item['poprawna']) {
+            $wynik++;
+        }
+    }
 }
 ?>    
 <!DOCTYPE html>
