@@ -128,7 +128,6 @@ $quiz = [
         "poprawna" => "Solidarność"
     ]
 ];  
-$wynik = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $wynik = 0;
     foreach ($quiz as $numer => $pytanie) { 
@@ -148,7 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <p>Witaj w quizie o Polsce! Czy uda Ci się zdobyć maksymalną liczbę punktów? Sprawdź swoją wiedzę o przełomowych momentach Polski!</p>
-    
-
+    <form action="" method="POST">
+             
+    <button type="submit">Wyślij odpowiedzi</button>
+    </form>
 </body>
 </html>
