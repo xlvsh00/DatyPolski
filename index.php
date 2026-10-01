@@ -131,8 +131,8 @@ $quiz = [
 $wynik = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $wynik = 0;
-    foreach ($quiz as $index => $item) {
-        if (isset($_POST["pytanie_$index"]) && $_POST["pytanie_$index"] === $item['poprawna']) {
+    foreach ($quiz as $numer => $pytanie) { 
+        if (isset($_POST["odpowiedz_$numer"]) && $_POST["odpowiedz_$numer"] === $pytanie["poprawna"]) {
             $wynik++;
         }
     }
@@ -148,5 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <p>Witaj w quizie o Polsce! Czy uda Ci się zdobyć maksymalną liczbę punktów? Sprawdź swoją wiedzę o przełomowych momentach Polski!</p>
+    
+
 </body>
 </html>
