@@ -167,6 +167,12 @@ $pytania = [
         ],
         "poprawna" => "A"
     ],
+
+
+
+
+
+
     [
         "pytanie" => "Jak nazywał się niezależny związek zawodowy założony w 1980 roku?",
         "odpowiedzi" => ["A" => "Solidarność", "B" => "Ruch", "C" => "Jedność"],
@@ -174,15 +180,36 @@ $pytania = [
     ]
 ];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Witaj w quizie o Polsce! Czy uda Ci się zdobyć maksymalną liczbę punktów? Sprawdź swoją wiedzę o przełomowych momentach Polski!</p>
+    <p>Witaj w quizie o Polsce! Czy uda Ci się zdobyć maksymalną liczbę punktów?</p>
+    <p>Sprawdź swoją wiedzę o przełomowych momentach Polski!</p>
+    
+    <?php
+        for($p=0; $p< count($pytania); $p++){
+            $pytanie = array_keys($pytania[$p])[0];
+            $wartosc_pytanie = $pytania[$p][$pytanie];
 
+            $odpowiedzi = array_keys($pytania[$p])[1];
+            $wartosc_odpowiedzi = $pytania[$p][$odpowiedzi];
+
+            $poprawna = array_keys($pytania[$p])[2];
+            $wartosc_poprawna = $pytania[$p][$poprawna];
+            
+            echo "<h3>$wartosc_pytanie</h3><hr>";
+            foreach($wartosc_odpowiedzi as $key => $value){
+                echo "$key -> $value  ";
+            }
+            echo "<mark>POPRAWNA: $wartosc_poprawna</mark>";
+        }  
+    ?>
 </body>
 </html>
