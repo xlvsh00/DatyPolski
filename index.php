@@ -1,155 +1,188 @@
+
 <?php
 session_start();
-    
-$quiz = [
+
+if (isset($_SESSION["numer"])) {
+    $_SESSION["numer"] = 0;
+    $_SESSION["punkty"] = 0;
+}
+
+
+
+
+
+?>
+
+<?php
+$pytania = [
     [
-        "pytanie" => "W którym roku odbył się Chrzest Polski?",
-        "odpowiedzi" => ["966 r.", "1000 r.", "1410 r."],
-        "poprawna" => "966 r."
+        "pytanie" => "W którym roku odbył się chrzest Polski?",
+        "odpowiedzi" => ["A" => "966", "B" => "1000", "C" => "1410"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Kto był pierwszym królem Polski?",
-        "odpowiedzi" => ["Mieszko I", "Bolesław Chrobry", "Kazimierz Wielki"],
-        "poprawna" => "Bolesław Chrobry"
+        "odpowiedzi" => ["A" => "Mieszko I", "B" => "Bolesław Chrobry", "C" => "Kazimierz Wielki"],
+        "poprawna" => "B"
     ],
     [
-        "pytanie" => "W którym roku była bitwa pod Grunwaldem?",
-        "odpowiedzi" => ["1410 r.", "1525 r.", "1683 r."],
-        "poprawna" => "1410 r."
+        "pytanie" => "W którym roku miała miejsce bitwa pod Grunwaldem?",
+        "odpowiedzi" => ["A" => "1410", "B" => "1525", "C" => "1683"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Jakie barwy ma flaga Polski?",
-        "odpowiedzi" => ["Czerwono-białe", "Biało-czerwone", "Niebiesko-białe"],
-        "poprawna" => "Biało-czerwone"
+        "odpowiedzi" => ["A" => "Czerwono-białe", "B" => "Biało-czerwone", "C" => "Niebiesko-białe"],
+        "poprawna" => "B"
     ],
     [
-        "pytanie" => "Jakie jest obecne miasto będące stolicą Polski?",
-        "odpowiedzi" => ["Kraków", "Warszawa", "Poznań"],
-        "poprawna" => "Warszawa"
+        "pytanie" => "Jakie miasto jest stolicą Polski?",
+        "odpowiedzi" => ["A" => "Kraków", "B" => "Warszawa", "C" => "Poznań"],
+        "poprawna" => "B"
     ],
     [
         "pytanie" => "Jak nazywa się polski hymn narodowy?",
-        "odpowiedzi" => ["Rota", "Mazurek Dąbrowskiego", "Bogurodzica"],
-        "poprawna" => "Mazurek Dąbrowskiego"
+        "odpowiedzi" => ["A" => "Rota", "B" => "Mazurek Dąbrowskiego", "C" => "Bogurodzica"],
+        "poprawna" => "B"
     ],
     [
         "pytanie" => "Które zwierzę jest symbolem w godle Polski?",
-        "odpowiedzi" => ["Orzeł", "Żubr", "Wilk"],
-        "poprawna" => "Orzeł"
+        "odpowiedzi" => ["A" => "Orzeł", "B" => "Żubr", "C" => "Wilk"],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "W którym roku Polska odzyskała niepodległość po I wojnie światowej?",
-        "odpowiedzi" => ["1918 r.", "1939 r.", "1945 r."],
-        "poprawna" => "1918 r."
+        "pytanie" => "W którym roku Polska odzyskała niepodległość?",
+        "odpowiedzi" => ["A" => "1918", "B" => "1939", "C" => "1945"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Kiedy wybuchła II wojna światowa?",
-        "odpowiedzi" => ["1 września 1939 r.", "11 listopada 1918 r.", "1 sierpnia 1944 r."],
-        "poprawna" => "1 września 1939 r."
+        "odpowiedzi" => [
+            "A" => "1 września 1939",
+            "B" => "11 listopada 1918",
+            "C" => "1 sierpnia 1944"
+        ],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "Kto był słynnym polskim astronomem, który 'wstrzymał Słońce, ruszył Ziemię'?",
-        "odpowiedzi" => ["Adam Mickiewicz", "Mikołaj Kopernik", "Fryderyk Chopin"],
-        "poprawna" => "Mikołaj Kopernik"
+        "pytanie" => "Kto był słynnym polskim astronomem?",
+        "odpowiedzi" => [
+            "A" => "Adam Mickiewicz",
+            "B" => "Mikołaj Kopernik",
+            "C" => "Fryderyk Chopin"
+        ],
+        "poprawna" => "B"
     ],
     [
         "pytanie" => "W którym roku Polska wstąpiła do Unii Europejskiej?",
-        "odpowiedzi" => ["1999 r.", "2004 r.", "2010 r."],
-        "poprawna" => "2004 r."
+        "odpowiedzi" => ["A" => "1999", "B" => "2004", "C" => "2010"],
+        "poprawna" => "B"
     ],
     [
-        "pytanie" => "Który król 'zastał Polskę drewnianą, a zostawił murowaną'?",
-        "odpowiedzi" => ["Kazimierz Wielki", "Zygmunt Stary", "Stanisław August Poniatowski"],
-        "poprawna" => "Kazimierz Wielki"
+        "pytanie" => "Który król zastał Polskę drewnianą, a zostawił murowaną?",
+        "odpowiedzi" => [
+            "A" => "Kazimierz Wielki",
+            "B" => "Zygmunt Stary",
+            "C" => "Stanisław August Poniatowski"
+        ],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Jak nazywał się polski papież wybrany w 1978 roku?",
-        "odpowiedzi" => ["Jan Paweł II", "Benedykt XVI", "Franciszek"],
-        "poprawna" => "Jan Paweł II"
+        "odpowiedzi" => ["A" => "Jan Paweł II", "B" => "Benedykt XVI", "C" => "Franciszek"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "W którym roku wybuchło Powstanie Warszawskie?",
-        "odpowiedzi" => ["1944 r.", "1939 r.", "1945 r."],
-        "poprawna" => "1944 r."
+        "odpowiedzi" => ["A" => "1944", "B" => "1939", "C" => "1945"],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "Kto napisał 'Pan Tadeusz'?",
-        "odpowiedzi" => ["Henryk Sienkiewicz", "Adam Mickiewicz", "Juliusz Słowacki"],
-        "poprawna" => "Adam Mickiewicz"
+        "pytanie" => "Kto napisał „Pana Tadeusza”?",
+        "odpowiedzi" => [
+            "A" => "Henryk Sienkiewicz",
+            "B" => "Adam Mickiewicz",
+            "C" => "Juliusz Słowacki"
+        ],
+        "poprawna" => "B"
     ],
     [
         "pytanie" => "Nad jaką rzeką leży Warszawa?",
-        "odpowiedzi" => ["Odra", "Wisła", "Warta"],
-        "poprawna" => "Wisła"
+        "odpowiedzi" => ["A" => "Odra", "B" => "Wisła", "C" => "Warta"],
+        "poprawna" => "B"
     ],
     [
         "pytanie" => "W którym roku uchwalono Konstytucję 3 Maja?",
-        "odpowiedzi" => ["1791 r.", "1918 r.", "1410 r."],
-        "poprawna" => "1791 r."
+        "odpowiedzi" => ["A" => "1791", "B" => "1918", "C" => "1410"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Jaką walutą płaci się w Polsce?",
-        "odpowiedzi" => ["Euro", "Złoty", "Dolar"],
-        "poprawna" => "Złoty"
+        "odpowiedzi" => ["A" => "Euro", "B" => "Złoty", "C" => "Dolar"],
+        "poprawna" => "B"
     ],
     [
-        "pytanie" => "Kto był pierwszym dowódcą odrodzonego Wojska Polskiego w 1918 roku (Naczelnik Państwa)?",
-        "odpowiedzi" => ["Józef Piłsudski", "Lech Wałęsa", "Tadeusz Kościuszko"],
-        "poprawna" => "Józef Piłsudski"
+        "pytanie" => "Kto był Naczelnikiem Państwa w 1918 roku?",
+        "odpowiedzi" => [
+            "A" => "Józef Piłsudski",
+            "B" => "Lech Wałęsa",
+            "C" => "Tadeusz Kościuszko"
+        ],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "Z jakim krajem Polska NIE graniczy?",
-        "odpowiedzi" => ["Niemcy", "Włochy", "Ukraina"],
-        "poprawna" => "Włochy"
+        "pytanie" => "Z jakim krajem Polska nie graniczy?",
+        "odpowiedzi" => ["A" => "Niemcy", "B" => "Włochy", "C" => "Ukraina"],
+        "poprawna" => "B"
     ],
     [
-        "pytanie" => "Która polska arystokratka odkryła polon i rad oraz dwukrotnie dostała Nagrodę Nobla?",
-        "odpowiedzi" => ["Maria Skłodowska-Curie", "Wisława Szymborska", "Olga Tokarczuk"],
-        "poprawna" => "Maria Skłodowska-Curie"
+        "pytanie" => "Która Polka odkryła polon i rad oraz dwukrotnie otrzymała Nagrodę Nobla?",
+        "odpowiedzi" => [
+            "A" => "Maria Skłodowska-Curie",
+            "B" => "Wisława Szymborska",
+            "C" => "Olga Tokarczuk"
+        ],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Jakie morze znajduje się na północy Polski?",
-        "odpowiedzi" => ["Morze Bałtyckie", "Morze Czarne", "Morze Śródziemne"],
-        "poprawna" => "Morze Bałtyckie"
+        "odpowiedzi" => [
+            "A" => "Morze Bałtyckie",
+            "B" => "Morze Czarne",
+            "C" => "Morze Śródziemne"
+        ],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "W którym roku miała miejsce bitwa pod Cedynią (jedna z najstarszych dat)?",
-        "odpowiedzi" => ["972 r.", "1234 r.", "1500 r."],
-        "poprawna" => "972 r."
+        "pytanie" => "W którym roku miała miejsce bitwa pod Cedynią?",
+        "odpowiedzi" => ["A" => "972", "B" => "1234", "C" => "1500"],
+        "poprawna" => "A"
     ],
     [
         "pytanie" => "Kto uratował Wiedeń przed Turkami w 1683 roku?",
-        "odpowiedzi" => ["Jan III Sobieski", "Stefan Batory", "Władysław Jagiełło"],
-        "poprawna" => "Jan III Sobieski"
+        "odpowiedzi" => [
+            "A" => "Jan III Sobieski",
+            "B" => "Stefan Batory",
+            "C" => "Władysław Jagiełło"
+        ],
+        "poprawna" => "A"
     ],
     [
-        "pytanie" => "Jak nazywał się niezależny związek zawodowy założony w 1980 roku w Gdańsku?",
-        "odpowiedzi" => ["Solidarność", "Ruch", "Jedność"],
-        "poprawna" => "Solidarność"
+        "pytanie" => "Jak nazywał się niezależny związek zawodowy założony w 1980 roku?",
+        "odpowiedzi" => ["A" => "Solidarność", "B" => "Ruch", "C" => "Jedność"],
+        "poprawna" => "A"
     ]
-];  
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $wynik = 0;
-    foreach ($quiz as $numer => $pytanie) { 
-        if (isset($_POST["odpowiedz_$numer"]) && $_POST["odpowiedz_$numer"] === $pytanie["poprawna"]) {
-            $wynik++;
-        }
-    }
-}
-?>    
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Jak dobrze znasz Polske!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
     <p>Witaj w quizie o Polsce! Czy uda Ci się zdobyć maksymalną liczbę punktów? Sprawdź swoją wiedzę o przełomowych momentach Polski!</p>
-    <form action="" method="POST">
-             
-    <button type="submit">Wyślij odpowiedzi</button>
-    </form>
+
 </body>
 </html>
